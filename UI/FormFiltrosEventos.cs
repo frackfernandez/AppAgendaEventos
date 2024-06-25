@@ -10,12 +10,11 @@ namespace UI
         IServicioEvento servicioEvento;
         public FormFiltrosEventos()
         {
+            this.StartPosition = FormStartPosition.CenterScreen;
             servicioEvento = new ServicioEvento();
             InitializeComponent();
             MostrarEventos();
         }
-
-        
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             int index = comboBox1.SelectedIndex;
@@ -40,6 +39,10 @@ namespace UI
 
             foreach (var item in eventosDto)
             {
+                if (item.Identificador == 0)
+                {
+                    continue;
+                }
                 if (item.Fecha < DateOnly.FromDateTime(DateTime.Now))
                 {
                     dataGridView1.Rows.Add(item.Identificador.ToString(), item.Titulo, item.Fecha.ToString(), item.Hora, "----", item.Tipo, item.Lugar, item.Foto);
@@ -103,14 +106,15 @@ namespace UI
         }
         private void btnAplicarTitulo_Click(object sender, EventArgs e)
         {
-            if (textTituloEntrada.Text == "")
+            string bus = textTituloEntrada.Text;
+            if (bus == "")
             {
                 MessageBox.Show("Por favor llena el campo!");
                 return;
             }
             else
             {
-                MostrarTitulo(textTituloEntrada.Text);
+                MostrarTitulo(bus);
             }
 
         }

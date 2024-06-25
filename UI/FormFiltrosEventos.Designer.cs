@@ -73,6 +73,7 @@
             dataGridView1.Location = new Point(12, 107);
             dataGridView1.Margin = new Padding(0);
             dataGridView1.Name = "dataGridView1";
+            dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersWidth = 35;
             dataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             dataGridView1.Size = new Size(760, 547);
@@ -82,48 +83,56 @@
             // 
             Identificador.HeaderText = "Id";
             Identificador.Name = "Identificador";
+            Identificador.ReadOnly = true;
             Identificador.Width = 30;
             // 
             // Titulo
             // 
             Titulo.HeaderText = "Titulo";
             Titulo.Name = "Titulo";
+            Titulo.ReadOnly = true;
             Titulo.Width = 160;
             // 
             // Fecha
             // 
             Fecha.HeaderText = "Fecha";
             Fecha.Name = "Fecha";
+            Fecha.ReadOnly = true;
             Fecha.Width = 80;
             // 
             // Hora
             // 
             Hora.HeaderText = "Hora";
             Hora.Name = "Hora";
+            Hora.ReadOnly = true;
             Hora.Width = 80;
             // 
             // TiempoRestante
             // 
             TiempoRestante.HeaderText = "Tiempo restante";
             TiempoRestante.Name = "TiempoRestante";
+            TiempoRestante.ReadOnly = true;
             TiempoRestante.Width = 160;
             // 
             // Tipo
             // 
             Tipo.HeaderText = "Tipo de evento";
             Tipo.Name = "Tipo";
+            Tipo.ReadOnly = true;
             Tipo.Width = 110;
             // 
             // Lugar
             // 
             Lugar.HeaderText = "Lugar";
             Lugar.Name = "Lugar";
+            Lugar.ReadOnly = true;
             Lugar.Width = 140;
             // 
             // Foto
             // 
             Foto.HeaderText = "Foto";
             Foto.Name = "Foto";
+            Foto.ReadOnly = true;
             // 
             // label1
             // 
@@ -226,7 +235,7 @@
             btnVolver.UseVisualStyleBackColor = true;
             btnVolver.Click += Volver_Click;
             // 
-            // Form2
+            // FormFiltrosEventos
             // 
             AutoScaleDimensions = new SizeF(7F, 18F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -249,7 +258,7 @@
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Margin = new Padding(3, 4, 3, 4);
             MaximizeBox = false;
-            Name = "Form2";
+            Name = "FormFiltrosEventos";
             Text = "Eventos";
             Load += Form2_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();

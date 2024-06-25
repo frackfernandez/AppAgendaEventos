@@ -44,7 +44,6 @@
             label6 = new Label();
             label7 = new Label();
             textTitulo = new TextBox();
-            textTipo = new TextBox();
             textLugar = new TextBox();
             textFoto = new TextBox();
             btnRegistrar = new Button();
@@ -57,6 +56,7 @@
             btnCargarFoto = new Button();
             pictureBox1 = new PictureBox();
             dateTimePicker1 = new DateTimePicker();
+            comboBoxTipo = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -71,52 +71,60 @@
             dataGridView1.Location = new Point(12, 330);
             dataGridView1.Margin = new Padding(0);
             dataGridView1.Name = "dataGridView1";
+            dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersWidth = 35;
             dataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             dataGridView1.Size = new Size(760, 324);
             dataGridView1.TabIndex = 0;
-            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
+            dataGridView1.CellClick += dataGridView1_CellContentClick;
             // 
             // Identificador
             // 
             Identificador.HeaderText = "Id";
             Identificador.Name = "Identificador";
+            Identificador.ReadOnly = true;
             Identificador.Width = 30;
             // 
             // Titulo
             // 
             Titulo.HeaderText = "Titulo";
             Titulo.Name = "Titulo";
+            Titulo.ReadOnly = true;
             Titulo.Width = 160;
             // 
             // Fecha
             // 
             Fecha.HeaderText = "Fecha";
             Fecha.Name = "Fecha";
+            Fecha.ReadOnly = true;
             Fecha.Width = 80;
             // 
             // Hora
             // 
             Hora.HeaderText = "Hora";
             Hora.Name = "Hora";
+            Hora.ReadOnly = true;
             Hora.Width = 80;
             // 
             // Tipo
             // 
             Tipo.HeaderText = "Tipo de evento";
             Tipo.Name = "Tipo";
+            Tipo.ReadOnly = true;
             Tipo.Width = 110;
             // 
             // Lugar
             // 
             Lugar.HeaderText = "Lugar";
             Lugar.Name = "Lugar";
+            Lugar.ReadOnly = true;
             Lugar.Width = 140;
             // 
             // Foto
             // 
             Foto.HeaderText = "Foto";
             Foto.Name = "Foto";
+            Foto.ReadOnly = true;
             // 
             // label1
             // 
@@ -187,13 +195,7 @@
             textTitulo.Name = "textTitulo";
             textTitulo.Size = new Size(200, 23);
             textTitulo.TabIndex = 8;
-            // 
-            // textTipo
-            // 
-            textTipo.Location = new Point(130, 240);
-            textTipo.Name = "textTipo";
-            textTipo.Size = new Size(200, 23);
-            textTipo.TabIndex = 11;
+            textTitulo.KeyPress += textTitulo_KeyPress;
             // 
             // textLugar
             // 
@@ -308,12 +310,23 @@
             dateTimePicker1.Size = new Size(200, 23);
             dateTimePicker1.TabIndex = 39;
             // 
-            // Form1
+            // comboBoxTipo
+            // 
+            comboBoxTipo.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxTipo.FormattingEnabled = true;
+            comboBoxTipo.Items.AddRange(new object[] { "Presencial", "Online" });
+            comboBoxTipo.Location = new Point(130, 237);
+            comboBoxTipo.Name = "comboBoxTipo";
+            comboBoxTipo.Size = new Size(200, 26);
+            comboBoxTipo.TabIndex = 40;
+            // 
+            // FormPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 18F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.DarkSeaGreen;
             ClientSize = new Size(784, 711);
+            Controls.Add(comboBoxTipo);
             Controls.Add(dateTimePicker1);
             Controls.Add(pictureBox1);
             Controls.Add(btnCargarFoto);
@@ -326,7 +339,6 @@
             Controls.Add(btnRegistrar);
             Controls.Add(textFoto);
             Controls.Add(textLugar);
-            Controls.Add(textTipo);
             Controls.Add(textTitulo);
             Controls.Add(label7);
             Controls.Add(label6);
@@ -340,7 +352,7 @@
             ForeColor = SystemColors.ControlText;
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
             MaximizeBox = false;
-            Name = "Form1";
+            Name = "FormPrincipal";
             RightToLeft = RightToLeft.No;
             SizeGripStyle = SizeGripStyle.Show;
             Text = "Eventos";
@@ -381,5 +393,6 @@
         private DataGridViewTextBoxColumn Tipo;
         private DataGridViewTextBoxColumn Lugar;
         private DataGridViewTextBoxColumn Foto;
+        private ComboBox comboBoxTipo;
     }
 }

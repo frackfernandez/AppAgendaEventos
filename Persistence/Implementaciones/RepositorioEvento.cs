@@ -5,15 +5,7 @@ namespace Persistence.Implementaciones
 {
     public class RepositorioEvento : IRepositorioEvento
     {
-
         string nombreDoc = Directory.GetCurrentDirectory() + @"\evento.txt";
-
-        public RepositorioEvento() {
-            if (!File.Exists(nombreDoc))
-            {
-                File.Create(nombreDoc);
-            }
-        }
         
         public List<EventoDto> MostrarEventos()
         {
@@ -46,9 +38,21 @@ namespace Persistence.Implementaciones
         public void RegistrarEvento(string row)
         {
             int id = NuevoId();
-            StreamWriter sw = File.AppendText(nombreDoc);
-            sw.Write($"\n{id};{row}");
-            sw.Close();
+            if (id == 1)
+            {
+                using (StreamWriter sw = File.AppendText(nombreDoc))
+                {
+                    sw.Write($"{id};{row}");
+                }
+            }
+            else
+            {
+                using (StreamWriter sw = File.AppendText(nombreDoc))
+                {
+                    sw.Write($"\n{id};{row}");
+                }
+            }
+            
         }
         public int NuevoId()
         {
